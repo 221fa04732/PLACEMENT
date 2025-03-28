@@ -28,7 +28,7 @@ const StudentPage = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await axios.get("https://placement-silk.vercel.app/api/allStudent");
+        const response = await axios.get("https://placement-pink.vercel.app/api/allStudent");
         setData(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);

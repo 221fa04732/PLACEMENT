@@ -14,7 +14,7 @@ export default function Button(props : {
 
 async function deleteStudent(id : string) {
     try{
-        const user = await axios.put("https://placement-silk.vercel.app/api/deleteStudent",{
+        const user = await axios.put("https://placement-pink.vercel.app/api/deleteStudent",{
             id : id
         })
         if(user){

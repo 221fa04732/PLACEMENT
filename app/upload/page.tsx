@@ -18,7 +18,7 @@ export default function Home() {
         formdata.append("file", studentData);
 
         console.log(formdata)
-        const response =await axios.post("https://placement-silk.vercel.app/api/newStudent",formdata, {
+        const response =await axios.post("https://placement-pink.vercel.app/api/newStudent",formdata, {
           headers: {
             "Content-Type": "multipart/form-data",
         }})
