@@ -146,8 +146,11 @@ const StudentPage = () => {
   const uniqueBranches = [...new Set(data.map(student => student.branch))];
   const uniqueBatches = [...new Set(data.map(student => student.batch))];
   const packageRanges = ["<5LPA", "5-10LPA", "10-20LPA", "20LPA+"];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const branchStats = getBranchStats();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const batchStats = getBatchStats();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const topCompanies = getTopCompanies();
 
   return (
