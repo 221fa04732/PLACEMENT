@@ -8,6 +8,7 @@ export default function Home() {
 
   const [studentData, setStudentData] = useState<File | null>(null)
   const [selectedFile, setSelectedFile] = useState("");
+  const [message, setmessage] = useState<string>("choose a file")
 
   async function fetchStudentData(){
 
@@ -18,24 +19,25 @@ export default function Home() {
         formdata.append("file", studentData);
 
         console.log(formdata)
-        const response =await axios.post("https://placement-pink.vercel.app/api/newStudent",formdata, {
+        const response =await axios.post("http://localhost:3000/api/newStudent",formdata, {
           headers: {
             "Content-Type": "multipart/form-data",
         }})
-
-        console.log(response.data)
+        setmessage(response.data.message + " : " +response.data.user.count)
       }
       else{
-        console.log("choose a file")
+        setmessage("choose a file")
       }
     }
 
     catch(error){
+      setmessage("An errror occured")
       console.error(error)
     }
   }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+      <div className="text-red-500 text-lg mb-4">{message}</div>
         <div className="bg-white/10 backdrop-blur-lg shadow-2xl rounded-2xl p-8 w-96 text-center border border-white/20">
             <h2 className="text-3xl font-extrabold text-gray-200 mb-4">Upload CSV File</h2>
             <p className="text-lg text-gray-400 mb-6">Select and upload a CSV file</p>
